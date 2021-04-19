@@ -1,13 +1,29 @@
 import styled from 'styled-components';
-import { colors } from '../../../../styles';
+import { colors } from '~/styles';
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p {
+    font-weight: bold;
+    margin-bottom: -10px;
+  }
+`;
 
 export const Container = styled.div`
-  margin: 10px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  margin: 20px;
   padding: ${({ size }) => size / 2.2}px;
   box-shadow: 0px 0px 3px 0px ${colors.gray};
   border-radius: 10px;
   background-color: ${colors.white};
-  height: 200px;
+  align-items: center;
+  z-index: 1;
+  border: ${({ selected }) => (selected ? 'solid 4px red' : '')};
 `;
 
 export const Hash = styled.div`
