@@ -2,15 +2,8 @@
 /* eslint-disable prefer-destructuring */
 /* eslint-disable no-plusplus */
 const jogador = 1;
-// const tabuleiro = ['-', '-', '-', '-', '-', '-', '-', '-', '-'];
-// const valorTabuleiro = 0;
 const encerrou = false;
 
-// function botaoClicado() {
-//   botao = event.target;
-//   const numeroBotao = parseInt(botao.id.charAt(5));
-//   marcarSimbolo(numeroBotao);
-// }
 
 export function verificarVencedor(tab) {
   let vencedor = false;
@@ -141,8 +134,6 @@ export function jogadaComputador(tabuleiro) {
 
       tabuleiros.push([...tabuleiro]);
 
-      // tabuleiros.push(tabuleiro);
-
       valorTabuleiro = minimax(tabuleiro, jogador);
       tabuleiro[jogada] = '-';
 
@@ -158,9 +149,7 @@ export function jogadaComputador(tabuleiro) {
         melhorValor = valorTabuleiro;
         melhorJogada = jogada;
       }
-      // console.log("Jogada " + jogada + ": " + melhorValor)
     }
-    // console.log("Melhor Jogada: " + melhorJogada + "\n\n")
 
     if (melhorJogada < 0) {
       const quantidadeJogadas = jogadasPossiveis.length;
@@ -176,42 +165,8 @@ export function jogadaComputador(tabuleiro) {
   return {
     target: numeroBotao,
     possibilities: tabuleiros,
-    // choice: jogadasPossiveis.map(tab.map((item)=>))
   };
-  // marcarSimbolo(numeroBotao);
 }
-
-// function marcarSimbolo(numeroBotao) {
-//   const titulo = document.getElementById('titulo_jogador');
-//   const idBotao = `botao${numeroBotao}`;
-//   botao = document.getElementById(idBotao);
-//   if (jogador === 0) {
-//     botao.innerHTML = 'o';
-//     botao.style = 'background-color: lightskyblue';
-//     tabuleiro[numeroBotao] = 'o';
-//     titulo.innerHTML = 'Jogador 2';
-//     titulo.style = 'color: lightcoral';
-//   } else {
-//     botao.innerHTML = 'x';
-//     botao.style = 'background-color: lightcoral';
-//     tabuleiro[numeroBotao] = 'x';
-//     titulo.innerHTML = 'Jogador 1';
-//     titulo.style = 'color: lightskyblue';
-//   }
-//   botao.disabled = true;
-
-//   // printTabuleiro();
-//   valorTabuleiro = verificarVencedor(tabuleiro);
-//   verificarFimDeJogo(valorTabuleiro);
-//   mudarJogador();
-// }
-
-// function printTabuleiro() {
-//   for (let i = 0; i < tabuleiro.length; i++) {
-//     console.log(`${i}: ${tabuleiro[i]}`);
-//   }
-//   console.log('\n\n');
-// }
 
 export function verificarFimDeJogo(tabuleiro) {
   switch (verificarVencedor(tabuleiro)) {
@@ -228,12 +183,3 @@ export function verificarFimDeJogo(tabuleiro) {
       return false;
   }
 }
-
-// function mudarJogador() {
-//   if (jogador === 0) {
-//     jogador = 1;
-//     jogadaComputador();
-//   } else {
-//     jogador = 0;
-//   }
-// }
